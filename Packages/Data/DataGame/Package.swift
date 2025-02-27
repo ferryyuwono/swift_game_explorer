@@ -13,7 +13,7 @@ let package = Package(
             targets: ["DataGame"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.10.0")),
+        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.9.1"),
         .package(path: "../DataCommon"),
         .package(path: "../../Domain/DomainGame")
     ],
@@ -23,7 +23,7 @@ let package = Package(
         .target(
             name: "DataGame",
             dependencies: [
-                .product(name: "Alamofire", package: "Alamofire"),
+                .product(name: "Swinject", package: "Swinject"),
                 .product(name: "DataCommon", package: "DataCommon"),
                 .product(name: "DomainGame", package: "DomainGame")
             ]

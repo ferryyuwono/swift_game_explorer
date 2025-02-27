@@ -13,6 +13,7 @@ let package = Package(
             targets: ["PresentationHome"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.9.1"),
         .package(path: "../../Domain/DomainGame")
     ],
     targets: [
@@ -21,6 +22,7 @@ let package = Package(
         .target(
             name: "PresentationHome",
             dependencies: [
+                .product(name: "Swinject", package: "Swinject"),
                 .product(name: "DomainGame", package: "DomainGame")
             ]
         ),

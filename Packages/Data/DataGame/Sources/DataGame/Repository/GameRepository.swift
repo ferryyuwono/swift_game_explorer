@@ -23,6 +23,6 @@ public struct GameRepository: GameRepositoriable {
         guard let response = await gameDataSource.getGameList(request: request) else {
             return GetGameListOutput()
         }
-        return response.toDomainModel()
+        return response.toDomainModel(nextPage: input.page + 1)
     }
 }
