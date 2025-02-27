@@ -12,18 +12,20 @@ import PresentationHome
 
 @main
 struct GameExplorerApp: App {
+    let container: Container = Container()
+    
     init() {
         registerInjection()
     }
     
     var body: some Scene {
         WindowGroup {
-            Container.shared.resolve(HomeView.self)
+            container.resolve(HomeView.self)
         }
     }
     
     private func registerInjection() {
-        DataGameInjection.register(container: Container.shared)
-        PresentationHomeInjection.register(container: Container.shared)
+        DataGameInjection.register(container: container)
+        PresentationHomeInjection.register(container: container)
     }
 }
