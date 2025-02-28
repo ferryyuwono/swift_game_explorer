@@ -18,7 +18,36 @@ public struct HomeView: View {
                 ForEach(
                     viewModel.gameList.results
                 ) { it in
-                    Text(it.name).padding()
+                    HStack {
+                        AsyncImage(
+                            url: URL(
+                                string: it.backgroundImage
+                            )
+                        ) { result in
+                            result.image?
+                                .resizable()
+                                .scaledToFit()
+                        }
+                        .frame(width: 150, height: 90)
+                        
+                        Text(
+                            it.name
+                        ).padding(
+                            EdgeInsets(
+                                top: 0,
+                                leading: 0,
+                                bottom: 0,
+                                trailing: 8
+                            )
+                        )
+                    }.padding(
+                        EdgeInsets(
+                            top: 4,
+                            leading: 0,
+                            bottom: 4,
+                            trailing: 0
+                        )
+                    ).listRowSeparator(.hidden)
                 }
                 
                 if !viewModel.gameList.next.isEmpty {
@@ -49,11 +78,13 @@ private struct EmptyGameRepository: GameRepositoriable {
             results: [
                 Game(
                     id: 1,
-                    name: "Test"
+                    name: "Test",
+                    backgroundImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCmgkix4DEJoToCFKP-g8ztCYa9bIuxAC3pA&s"
                 ),
                 Game(
                     id: 2,
-                    name: "Test 2"
+                    name: "Test 2",
+                    backgroundImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCmgkix4DEJoToCFKP-g8ztCYa9bIuxAC3pA&s"
                 )
             ]
         )

@@ -11,7 +11,8 @@ extension GameData {
     func toDomainModel() -> Game {
         return Game(
             id: self.id ?? 0,
-            name: self.name ?? ""
+            name: self.name ?? "",
+            backgroundImage: self.backgroundImage ?? ""
         )
     }
 }
